@@ -17,7 +17,7 @@ public class ProdutoController {
     //Get -> Litar todos os produtos que estão cadastrados, exibindo ID, nome e preço. 
     //Quando ocorrer um get para produtoController, preciso retornar a listar.html
 
-    @GetMapping("/")
+    @GetMapping("/") // "/" significa para a página principal
     public String listarProdutos(Model model){
         model.addAttribute("todosOsProdutos", repository.findAll());
         return "listar";
@@ -37,7 +37,7 @@ public class ProdutoController {
     public String cadastrarProdutos(Produto produto){
         
         repository.save(produto);
-        return "/"; //  "/" significa voltar para a página principal
+        return "redirect:/"; //  "/" significa voltar para a página principal
     }
 
 

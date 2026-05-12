@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Listagem</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
 </head>
 <body>
     <div class="container">
@@ -17,15 +18,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Id do Produto</td>
-                    <td>Nome do Produto</td>
-                    <td>Preço do Produto</td>
+                <tr th:each="produto : ${todosOsProdutos}" >
+                    <td th:text="${produto.id}">Id do Produto</td>
+                    <td th:text="${produto.nome}":>Nome do Produto</td>
+                    <td th:text="${produto.preco}">Preço do Produto</td>
                 </tr>
             </tbody>
         </table>
 
-        <a href="/">Cadastrar um novo Produto</a>
+        <a th:href="@{/cadastro}">Cadastrar um novo Produto</a>
     </div>
 </body>
 </html>
